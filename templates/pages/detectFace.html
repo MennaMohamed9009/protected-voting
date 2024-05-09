@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://bootswatch.com/5/morph/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center;
+            height: 100vh; /* Ensure the body takes up the full viewport height */
+            margin: 0; /* Remove default margin */
+            background-color: white;
+        }
+        input[type="number"] {
+            width: 200px;
+            margin-bottom: 20px; /* Add space below the input */
+        }
+        .video-container {
+            margin-top: 20px; /* Add space above the video container */
+        }
+    </style>
+</head>
+<body>
+    <label >الرقم القومي</label>
+    <input type="number" style="width: 200;" class="idnum" >
+
+    <div class="video-container">
+        <div class="text-center">
+            <video autoplay="true" id="video-element"></video>
+        </div>
+
+        <div id="img-element"></div>
+
+        <div class="text-center mt-3">
+            <button class="btn btn-primary" id="capture-btn">التقاط صوره</button>
+            <button class="btn btn-info" id="reload-btn">اعاده</button>
+        </div> 
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+console.log('hello world')
+
+const getCookie = (name) => {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+const csrftoken = getCookie('csrftoken');
+
+const video = document.getElementById('video-element')
+const image = document.getElementById('img-element')
+const captureBtn = document.getElementById('capture-btn')
+const reloadBtn = document.getElementById('reload-btn')
+
+reloadBtn.addEventListener('click', () => {
+    window.location.reload()
+})
+let numberValue; // Declare numberValue globally without assigning any initial value
+
+if (navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia({video: true})
+    .then((stream) => {
+        video.srcObject = stream
+        const {height, width} = stream.getTracks()[0].getSettings()
+
+        captureBtn.addEventListener('click', e=> {
+            e.preventDefault()
+            captureBtn.classList.add('not-visible')
+            const track = stream.getVideoTracks()[0]
+            const imageCapture = new ImageCapture(track)
+            console.log(imageCapture)
+            numberValue = parseFloat(document.querySelector('.idnum').value);
+            console.log(numberValue)
+            imageCapture.takePhoto().then(blob => {
+                console.log("took photo:", blob)
+                const img = new Image(width, height)
+                img.src = URL.createObjectURL(blob)
+                image.append(img)
+
+                video.classList.add('not-visible')
+
+                const reader = new FileReader()
+
+                reader.readAsDataURL(blob)
+                reader.onloadend = () => {
+                    const base64data = reader.result
+                    console.log(base64data)
+
+                    const fd = new FormData()
+                    fd.append('csrfmiddlewaretoken', csrftoken)
+                    fd.append('photo', base64data)
+                    fd.append('number', numberValue); // Add number data
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/classify/',
+                        enctype: 'multipart/form-data',
+                        data: fd,
+                        processData: false,
+                        contentType: false,
+                        success: (resp) => {
+                            console.log(resp)
+                            window.location.href = resp.redirect_url;
+
+                        },
+                        error: (err) => {
+                            console.log(err)
+                        }
+                    })
+                }
+            }).catch(error => {
+                console.log('takePhoto() error: ', error);
+            });
+        });
+    })
+    .catch(error => {
+        console.log("Something went wrong!", error);
+    });
+}
+
+</script>
+</body>
+</html>

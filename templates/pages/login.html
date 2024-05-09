@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+            <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+    <div class="main-text">    
+        <h1> تسجيل دخول</h1>
+    </div>
+    <form  method="post">
+        {% csrf_token %}
+        <div class="email input" >
+            <label>البريد الإلكترونى</label>
+            {{form.email}}
+        </div>
+        <div class="password input">
+            <label> كلمة السر</label>
+            {{form.password}}
+        </div>
+        <div class="login-btn">
+            <button class="back" id="loginBtn" style="font-size: 30px;" type="submit">تسجيل الدخول</button>
+            <a href="getPhoneNumber" class="a">هل  نسيت كلمة السر؟</a>
+        </div>
+    </form>
+    <div class="or">
+        <p >أو</p>
+    </div>
+    <div class="create-acc">
+        <button class="back back1"  ><a href="{% url 'create-account' %}">انشاء حساب</a></button>
+
+    </div>
+ 
+    </div>
+</body>
+</html>

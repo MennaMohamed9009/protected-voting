@@ -1,0 +1,433 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    font-family: "Baloo Bhaijaan 2", sans-serif;
+}
+.container {
+    position: relative;
+    height: 100vh;
+    max-width: 100%;
+    background: url(../imgs/image\ 5.png) no-repeat scroll ;
+    background-size: contain;
+    background-position: center center;
+    padding: 50px;
+}
+.container .main-text {
+    z-index: 1;
+    position: relative;
+    max-width: 993px;
+    height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 64px auto;
+    padding-right: 20px;
+}
+
+.container .main-text::before {
+    content: '';
+    position: absolute;
+    background: #F5F5F5;
+    opacity: 1;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 50px;
+}
+.container .main-text h1 {
+    font-family: Inter;
+    font-size: 50px;
+    font-weight: 800;
+    line-height: 61px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+.container form  {
+display: flex;
+justify-content: center ;
+align-items: center;
+margin: -10px auto;
+flex-direction: column;
+direction: rtl;
+z-index: 99999;
+padding: 30px;
+}
+.container form .email{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px;
+}
+.container form .email label{
+    font-family: Inter;
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: right;
+    align-self: flex-start;
+
+}
+.container form .email input{
+    border: none;
+    background: #D9D9D9;
+    outline: none;
+    font-size: 30px;
+    background-blend-mode: multiply;
+    width: 987px;
+    height: 89px;
+    align-self: flex-start;
+    padding: 30px;
+    opacity:  0.6;
+}
+
+.container form .password{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+.container form .password label{
+    font-family: Inter;
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: right;
+    align-self: flex-start;
+
+}
+.container form .password input{
+    border: none;
+    background: #D9D9D9;
+    outline: none;
+    font-size: 30px;
+    background-blend-mode: multiply;
+    width: 987px;
+    height: 89px;
+    align-self: flex-start;
+    padding: 30px;
+    opacity:  0.6;
+}
+.container form .login-btn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container form .login-btn1 {
+    color: black;
+    text-decoration: none;
+    font-family: Inter;
+    font-size: 50px;
+    font-weight: 800;
+    line-height: 61px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.container form .login-btn a{
+    font-family: Inter;
+    font-size: 35px;
+    font-weight: 400;
+    line-height: 42px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:black;    
+}
+
+.or{
+display: flex;
+justify-content: center;
+position: relative; 
+
+}
+.or::before{
+    content: '';
+    width: 49%;
+    height: 1px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 0;
+}
+.or::after{
+    content: '';
+    width: 49%;
+    height: 1px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    right: 0;
+}
+.or p{
+    font-family: Inter;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 39px;
+    letter-spacing: 0em;
+    text-align: left;    
+}
+.create-acc{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.create-acc button{
+    cursor: pointer;
+    width: 589px;
+    height: 89px;
+    border: none;
+    background: #D9D9D9;
+}
+.create-acc button a{
+    font-family: Inter;
+    font-size: 35px;
+    font-weight: 400;
+    line-height: 42px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:black;    
+    text-decoration: none;
+}
+.back{
+    cursor: pointer;
+
+    margin: 30px;
+    width: 258px;
+    height: 86px;
+    border: none;
+    background: #D9D9D9;
+}
+.back a{
+    text-decoration: none;
+    color: black;
+    font-family: Inter;
+    font-size: 50px;
+    font-weight: 800;
+    line-height: 61px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+.login-btn1 {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #D9D9D9;
+    color: white;
+    text-decoration: none;
+    border-radius: 4;
+    margin: 20px;
+    padding:  10px 100px;
+}
+
+
+@media (max-width:986px) 
+{
+    .container{
+    padding: 70px !important;
+}
+    .container form {
+    padding: 10px !important;
+    }
+    .container form .email label, .container form .password label{
+        font-size: 30px !important;
+        font-weight: 800  !important;
+        line-height: 48px !important;
+        align-self: center  !important;
+    }
+    .container form .email input,.container form .password input,.container form .login-btn button{
+        width:  90% !important;
+    }
+    #loginBtn{
+        width: 30% !important;
+    }
+    .container .main-text{
+        margin-left: 0 !important;
+    }
+    .container .main-text h1{
+        font-size: 30px !important;
+        font-weight: 800!important;
+    }
+    /* .container form .login-btn button  a{
+    font-size: 30px;
+    width:  100%;
+    height: 71px;
+    } */
+    .create-acc button{
+        width: 289px !important;
+        padding: 30px !important;
+    }
+    /* .back{
+        width: 259px;
+    } */
+    .back a{
+        font-size: 30px !important;
+        font-weight: 400 !important;
+    }
+}  
+ @media (max-width:1653px){
+    .container{
+        padding-right: 110px;
+        padding-left: 0px;
+        padding-top: 10px;
+    }
+
+    .container form {
+        padding-right: 50px;
+        padding-left: 0px;
+        padding-top: 10px;
+    }
+    .container form .input label, .container form .input label{
+        font-size: 30px;
+        font-weight: 800;
+        line-height: 48px;
+        align-self:left;
+        
+    }
+    .container form .input{
+        padding-bottom: 10px;
+        padding-top: 10px;
+     
+    }
+    .container form .input input{
+        height: 20px;
+    }
+    .container form div,.container form .input input,.container form .input select{
+        width:  80%;
+        border-radius: 15px;
+        
+    }
+    .container .main-text{
+        margin-bottom: 10px;
+        margin-left: 350px;
+        width: 50%;
+    }
+    .container .main-text h1{
+        font-size: 30px;
+        font-weight: 800;
+    }
+    .container form .login-btn button{
+        margin: 30px -100px;
+    }
+    .container form .login-btn button  a{
+    font-size: 30px;
+    width:  100%;
+    height: 71px;
+    }
+    .create-acc button{
+        width: 289px;
+    }
+    .back{
+        width: 289px;
+    }
+    .back a{
+        font-size: 30px;
+        font-weight: 400;
+    }
+    #loginBtn{
+        margin-right: -239px;
+    }
+    /* .login-btn {
+        margin-right: -239px;
+    } */
+    .a{
+        margin-right: -150px;
+    }
+    .back{
+        margin-right: -57px;
+    }
+    .or{
+        margin-left: 90px
+    }
+}  
+@media (max-width:786px) {
+    .container{
+        padding: 10px !important;
+    }
+    .container form {
+    padding: 10px  !important;
+    }
+    .container form .email label, .container form .password label{
+        font-size: 30px!important;
+        font-weight: 800!important;
+        line-height: 48px!important;
+        align-self:center !important;
+        
+    }
+    .container form .email input,.container form .password input,.container form .login-btn button{
+    width:  100%!important;
+    border-radius: 0 !important;
+    }
+    .container .main-text{
+        margin: 10px auto !important;
+    }
+    .container .main-text h1{
+        font-size: 30px!important;
+        font-weight: 800!important;
+    }
+    .container form .login-btn button  a{
+    font-size: 30px!important;
+    width:  100%!important;
+    height: 71px!important;
+    }
+    .create-acc button{
+        width: 289px;
+        padding: 30px;
+    }
+    /* .back{
+        width: 259px;
+    } */
+    .back a{
+        font-size: 30px;
+        font-weight: 400;
+    }
+    #loginBtn ,
+    .back1{
+        width: 100% !important;
+        margin-left: 0;
+    }
+    .a{
+        margin-right: 0px !important;
+    }
+    .back{
+        margin-right: 0px !important;
+    }
+    .or{
+        margin-left: 0px !important
+    }
+}
+@media (min-width:768px) and (max-width:991px){
+    .container .main-text{
+        margin-bottom: 10px !important;
+        margin-left: 200px !important;
+        width: 50% !important ;
+    }
+    #loginBtn{
+        width: 40% !important;
+        margin-left: -177px;
+    }
+    .a{
+        margin-left: -100px;
+
+    }
+
+}   
+

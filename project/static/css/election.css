@@ -1,0 +1,167 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    font-family: "Baloo Bhaijaan 2", sans-serif;
+}
+.container{
+    padding: 50px;
+}
+table{
+    max-width: 80%;
+    margin: 0 auto;
+}
+table td {
+    padding: 10px;
+    margin: 0;
+}
+table thead td{
+font-family: Inter;
+font-size: 30px;
+font-weight: 600;
+line-height: 73px;
+letter-spacing: 0em;
+text-align: center;
+}
+table thead tr{
+    background: #A19D9D;
+    border: none;
+    border-bottom: 1px solid #FFFFFF
+}
+table tbody tr{
+    background: #D9D9D9;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+table tbody tr .preson {
+    max-width:calc(258px -200px) ;
+    height: calc(378px - 250px);
+}
+table tbody tr .icon {
+    max-width: 213px;
+    height: 159px;
+    margin:0 auto;
+}
+
+table tbody td{
+font-family: Inter;
+font-size: 45px;
+font-weight: 900;
+line-height: 54px;
+text-align: center;
+
+}
+table tbody td input{
+width: 40px;
+height: 40px;
+background-color: #fff;
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 0 auto;
+}
+
+.back{
+    cursor: pointer;
+    margin: 30px;
+    width: 258px;
+    height: 86px;
+    border: none;
+    background: #D9D9D9;
+}
+.back a{
+    text-decoration: none;
+    color: black;
+    font-family: Inter;
+    font-size: 50px;
+    font-weight: 800;
+    line-height: 61px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.create-acc{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.create-acc a{
+    cursor: pointer;
+    width: 589px;
+    height: 89px;
+    border: none;
+    background: #D9D9D9;
+}
+.create-acc button a{
+    font-family: Inter;
+    font-size: 35px;
+    font-weight: 400;
+    line-height: 42px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:black;    
+    text-decoration: none;
+}
+
+@media (max-width:786px) {
+    .container{
+        max-width:786px ;
+    }
+    .create-acc button{
+        width: 289px;
+    }
+    .back{
+        width: 289px;
+    }
+    .back a{
+        font-size: 30px;
+        font-weight: 400;
+    }
+    /* .show{
+        display: none;
+    } */
+    table tbody tr .preson{
+        width: 108px;
+        height: 178px;
+    }
+    table tbody tr .icon{
+        width: 100px;
+        height: 129px;
+    }
+    table thead td{
+        font-size: 30px;
+        font-weight: 400;
+    }   
+     table tbody td{
+        font-size: 25px;
+        font-weight: 500;
+    }
+}
+
+
+@media (max-width:1653px) {
+
+    table tbody tr .person{
+        max-width:calc(258px -250px) ;
+        height: calc(378px - 300px);
+    }
+    table tbody tr .icon{
+        max-width: 213px;
+        height: 159px;
+    }
+    table thead td{
+        font-size: 30px;
+        font-weight: 600;
+        }
+        table tbody td {
+            font-size: 30px;
+            font-weight: 600;
+        }
+}

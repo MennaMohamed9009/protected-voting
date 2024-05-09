@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pie Chart Visualization</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<style>
+    .chart-frame {
+    max-width: 600px;
+    margin:5% auto;
+    border: 3px solid #000000;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    }
+
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+<body>
+    <div class="chart-frame">
+        <canvas id="pieChart"></canvas>
+    </div>
+    
+    <script>
+            const data = {
+        labels: ["Competitor 1", "Competitor 2", "Competitor 3", "Competitor 4"],
+        datasets: [
+            {
+                data: [65, 20, 10, 5],
+                backgroundColor: ["#FFD700", "#FF69B4", "#00CED1", "#FFE4B5"],
+                hoverBackgroundColor: ["#FFD700", "#FF69B4", "#00CED1", "#FFE4B5"]
+            }
+        ]
+    };
+
+    const config = {
+        type: 'pie',
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const label = context.label || '';
+                            const value = context.raw || '';
+                            return label + ': ' + value + '%';
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    const pieChart = new Chart(document.getElementById('pieChart'), config);
+    </script>
+</body>
+</html>

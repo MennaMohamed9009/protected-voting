@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+body{
+    direction: rtl;
+    font-family: "Baloo Bhaijaan 2", sans-serif;
+}
+.frist-ul{
+    margin-top: 50px;
+}
+.frist-ul li {
+    font-size: 48px;
+}
+.frist-ul li a{
+    color: black;
+}
+.container{
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+
+}
+.center{
+    justify-self: center;
+    align-self: center;
+}
+.container img{
+    width: 514px;
+    height:444px ;
+}
+.info{
+    margin:10px;
+    font-size: 32px;
+    padding: 30px;
+    line-height: 70px;
+}
+.info span{
+    font-size: 32px;
+    font-weight: bold;
+}
+.info2{
+    margin: 10px;
+    font-size: 32px;
+    line-height: 70px;
+
+}
+
+.info2 h1{
+    font-size: 32px;
+    font-weight: bold;
+    padding: 20px;
+    border-bottom: 3px solid black ;
+}
+a{
+    color: black;
+}
+.info2 p{
+    line-height: 70px;
+}
+@media (max-width:767px) {
+    .frist-ul li {
+        font-size: 28px;
+    }
+    .container{
+        padding: 20px;
+    }
+    .info,.info2{  
+        padding: 10px;
+        line-height: 50px;
+    }
+    .container img{
+        width: calc(514px/2);
+        height:calc(444px/2) ;
+    }
+
+}
+@media (min-width:768px) and (max-width:991px){
+    .container img{
+        width: calc(514px/2);
+        height:calc(444px/2) ;
+    }
+    .frist-ul li {
+        font-size: 28px;
+    }
+    .info,.info2,.info span{  
+        padding: 10px;
+        line-height: 50px;
+        font-size: 20px;
+    }
+}   
+@media (min-width:992px) and (max-width:1199px){
+    .frist-ul li{
+        font-size: 28px;
+    }
+    .container img{
+        width: calc(514px/2);
+        height:calc(444px/2) ;
+    }
+    .info,.info2,.info span{  
+        padding: 10px;
+        line-height: 50px;
+        font-size: 20px;
+    }
+}

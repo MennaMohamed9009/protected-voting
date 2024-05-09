@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>information</title>
+    <link rel="stylesheet" href="{% static 'css/info.css'%}">
+        <!-- google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="main-text">    
+            <h1> معلومات عن المرشحين في انتخابات الرئاسيه لعام  2024</h1>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <td>الحزب</td>
+                    <td>اسم</td>
+                    <td class="show">الصورة</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>مستقل</td>
+                <td><a href="sisi">
+                    عبد الفتاح سعيد حسين خليل السيسي</a>
+            </td>
+                <td class="show"><a href="sisi"><img src="{% static 'image/sisi2.png'%}" alt="" class="preson"></a></td>
+            </tr>
+            <tr>
+                <td>حزب الشعب الجمهورى</td>
+                <td><a href="hazem">
+                    حازم  محمد سليمان محمد عمر</a>
+            </td>
+                <td class="show"><a href="hazem"><img src="{% static 'image/hazem2.png'%}" alt="" class="preson"></a></td>
+            </tr>
+            <tr>
+                <td>حزب الوفد الجديد</td>
+                <td><a href="abd el sanad">
+                    عبد السند حسن محمد يمامه</a>
+            </td>
+                <td class="show"><a href="abd el sanad"><img src="{% static 'image/yamama.png'%}" alt="" class="preson"></a></td>
+
+            </tr>
+            <tr>
+                <td class="none">الحزب المصرى الديمقراطى الاجتماعى</td>
+                <td class="none"><a href="mohamed">
+                    محمد فريد سعد زهران</a>
+            </td>
+                <td class="show" class="none"><a href="mohamed"><img src="{% static 'image/mohamed.png'%}" alt="" class="preson"></a></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
